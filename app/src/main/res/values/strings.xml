@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">daltoDesigner</string>
+    <string name="navigate">Navigate</string>
+    <string name="btnNuevoDiseno">Nuevo Diseño</string>
+    <string name="btnCargarDiseno">Cargar diseño</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="btnAplicarFiltros">Aplicar filtros</string>
+    <string name="txtSeleccionarFiltroSegunDaltonismo">Escoge el filtro a usar según el nivel de daltonismo diagnosticaco</string>
+    <string name="txtCompartirDiseno">Compartir Diseño</string>
+    <string name="txtCompatirPorCorreoElectronico">Enviar por correo electrónico</string>
 </resources>
