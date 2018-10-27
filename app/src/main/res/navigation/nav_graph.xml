@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2017 The Android Open Source Project
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@+id/launcher_home">
+
+    <fragment android:id="@+id/launcher_home"
+              android:label="Home"
+              android:name="co.savsolutions.daltodesigner.StartFragment" >
+
+        <action android:id="@+id/end_action" app:destination="@id/EndFragment"/>
+        <action
+            android:id="@+id/action_Cargar_frgAreaDibujo"
+            app:destination="@id/frgAreaDibujo" />
+        <action
+            android:id="@+id/action_frgCargar_Diseno"
+            app:destination="@id/frgCargar_Diseno" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/EndFragment"
+        android:name="co.savsolutions.daltodesigner.EndFragment"
+        android:label="Salir de la aplicación"
+        tools:layout="@layout/fragment_end">
+
+    </fragment>
+    <fragment
+        android:id="@+id/frgAreaDibujo"
+        android:name="co.savsolutions.daltodesigner.frgAreaDibujo"
+        android:label="fragment_frg_area_dibujo"
+        tools:layout="@layout/fragment_frg_area_dibujo" >
+        <action
+            android:id="@+id/action_frgAreaDibujo_to_frgFiltrosColores"
+            app:destination="@id/frgFiltrosColores" />
+    </fragment>
+    <fragment
+        android:id="@+id/frgFiltrosColores"
+        android:name="co.savsolutions.daltodesigner.frgFiltrosColores"
+        android:label="fragment_frg_filtros_colores"
+        tools:layout="@layout/fragment_frg_filtros_colores" >
+        <action
+            android:id="@+id/action_frgFiltrosColores_to_frgCompartirDiseno"
+            app:destination="@id/frgCompartirDiseno" />
+    </fragment>
+    <fragment
+        android:id="@+id/frgCargar_Diseno"
+        android:name="co.savsolutions.daltodesigner.frgCargar_Diseno"
+        android:label="fragment_frg_cargar__diseno"
+        tools:layout="@layout/fragment_frg_cargar__diseno" />
+    <fragment
+        android:id="@+id/frgCompartirDiseno"
+        android:name="co.savsolutions.daltodesigner.frgCompartirDiseno"
+        android:label="fragment_frg_compartir_diseno"
+        tools:layout="@layout/fragment_frg_compartir_diseno" />
+</navigation>
