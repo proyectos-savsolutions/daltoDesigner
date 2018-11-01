@@ -6,7 +6,10 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.navigation.Navigation
 import co.savsolutions.daltodesigner.R
+import co.savsolutions.daltodesigner.frgAreaDibujo
 
 class MainFragment : Fragment() {
 
@@ -15,6 +18,8 @@ class MainFragment : Fragment() {
     }
 
     private lateinit var viewModel: MainViewModel
+    private var fragmento: Fragment? = null
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,6 +32,22 @@ class MainFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
         // TODO: Use the ViewModel
+
+
+        // Set up a click listener on the login button
+        view?.findViewById<Button>(R.id.btnLanzar)?.setOnClickListener {
+
+            //
+            val bdl = Bundle()
+
+            fragmento = frgAreaDibujo()
+            bdl.putString("param1","https://heytaxisavsolutions.wordpress.com/contacto/")
+            fragmento!!.arguments = bdl
+
+
+            // Navigate to the login destination
+            view?.let { Navigation.findNavController(it).navigate(R.id.frgAreaDibujo2) }
+        }
     }
 
 }

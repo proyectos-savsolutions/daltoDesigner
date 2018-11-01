@@ -68,7 +68,7 @@ class frgAreaDibujo : Fragment() {
         // Set up a click listener on the login button
         view?.findViewById<Button>(R.id.btnAplicarFiltros)?.setOnClickListener {
             // Navigate to the login destination
-            view?.let { Navigation.findNavController(it).navigate(R.id.frgFiltrosColores) }
+            view?.let { Navigation.findNavController(it).navigate(R.id.frgFiltrosColores3) }
         }
     }
 

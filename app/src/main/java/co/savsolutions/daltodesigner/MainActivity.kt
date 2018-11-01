@@ -9,15 +9,18 @@ class MainActivity : AppCompatActivity(),
     frgAreaDibujo.OnFragmentInteractionListener,
     frgCargar_Diseno.OnFragmentInteractionListener,
     frgFiltrosColores.OnFragmentInteractionListener,
-    frgCompartirDiseno.OnFragmentInteractionListener {
+    frgCompartirDiseno.OnFragmentInteractionListener
+{
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
         if (savedInstanceState == null) {
+            /*
             supportFragmentManager.beginTransaction()
                 .replace(R.id.container, MainFragment.newInstance())
                 .commitNow()
+                */
         }
     }
 
@@ -25,5 +28,7 @@ class MainActivity : AppCompatActivity(),
 
         // Prueba
     }
+
+
 
 }

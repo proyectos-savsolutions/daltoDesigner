@@ -65,7 +65,7 @@ class frgFiltrosColores : Fragment() {
         // Set up a click listener on the login button
         view?.findViewById<Button>(R.id.btnCompartirDiseno)?.setOnClickListener {
             // Navigate to the login destination
-            view?.let { Navigation.findNavController(it).navigate(R.id.frgCompartirDiseno) }
+            view?.let { Navigation.findNavController(it).navigate(R.id.frgCompartirDiseno3) }
         }
     }
     override fun onDetach() {

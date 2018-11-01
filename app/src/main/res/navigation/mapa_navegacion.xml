@@ -4,9 +4,38 @@
             xmlns:tools="http://schemas.android.com/tools" android:id="@+id/mapa_navegacion"
             app:startDestination="@id/mainFragment">
 
-    <fragment android:id="@+id/mainFragment" android:name="co.savsolutions.daltodesigner.ui.main.MainFragment"
-              android:label="main_fragment" tools:layout="@layout/main_fragment">
-        <action android:id="@+id/cnxDaltoDesigner"/>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="co.savsolutions.daltodesigner.ui.main.MainFragment"
+        android:label="main_fragment"
+        tools:layout="@layout/main_fragment">
+        <action
+            android:id="@+id/action_mainFragment_to_frgAreaDibujo2"
+            app:destination="@id/frgAreaDibujo2" />
     </fragment>
-    <include app:graph="@navigation/nav_graph"/>
+    <fragment
+        android:id="@+id/frgAreaDibujo2"
+        android:name="co.savsolutions.daltodesigner.frgAreaDibujo"
+        android:label="fragment_frg_area_dibujo"
+        tools:layout="@layout/fragment_frg_area_dibujo" >
+        <action
+            android:id="@+id/action_frgAreaDibujo2_to_frgFiltrosColores3"
+            app:destination="@id/frgFiltrosColores3" />
+    </fragment>
+    <fragment
+        android:id="@+id/frgFiltrosColores3"
+        android:name="co.savsolutions.daltodesigner.frgFiltrosColores"
+        android:label="frgFiltrosColores" >
+        <action
+            android:id="@+id/action_frgFiltrosColores3_to_frgCompartirDiseno3"
+            app:destination="@id/frgCompartirDiseno3" />
+    </fragment>
+    <fragment
+        android:id="@+id/frgCompartirDiseno3"
+        android:name="co.savsolutions.daltodesigner.frgCompartirDiseno"
+        android:label="frgCompartirDiseno" >
+        <action
+            android:id="@+id/action_frgCompartirDiseno3_to_frgAreaDibujo2"
+            app:destination="@id/frgAreaDibujo2" />
+    </fragment>
 </navigation>
