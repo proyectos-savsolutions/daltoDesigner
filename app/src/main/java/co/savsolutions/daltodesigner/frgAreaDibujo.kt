@@ -2,6 +2,7 @@ package co.savsolutions.daltodesigner
 
 
 import android.content.Context
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -65,11 +66,37 @@ class frgAreaDibujo : Fragment() {
         canvas = cnvEspacioDibujo
         canvas!!.ajustarPincel()
 
-        // Set up a click listener on the login button
+        // Escucha para pasar a la vista de aplicar filtros
         view?.findViewById<Button>(R.id.btnAplicarFiltros)?.setOnClickListener {
             // Navigate to the login destination
             view?.let { Navigation.findNavController(it).navigate(R.id.frgFiltrosColores3) }
         }
+
+        // Escucha para el botón de Color Azul
+        view?.findViewById<Button>(R.id.btnColorAzul)?.setOnClickListener {
+            canvas!!.colorDelPincel(Color.BLUE)
+        }
+
+        // Escucha para el botón de Color Naranja
+        view?.findViewById<Button>(R.id.btnColorNaranja)?.setOnClickListener {
+            canvas!!.colorDelPincel(Color.YELLOW)
+        }
+
+        // Escucha para el botón de Color Verde
+        view?.findViewById<Button>(R.id.btnColorVerde)?.setOnClickListener {
+            canvas!!.colorDelPincel(Color.GREEN)
+        }
+
+        // Escucha para el botón de Color Purpura
+        view?.findViewById<Button>(R.id.btnColorPurpura)?.setOnClickListener {
+            canvas!!.colorDelPincel(Color.MAGENTA)
+        }
+
+        // Escucha para el botón de Color Rojo
+        view?.findViewById<Button>(R.id.btnColorRojo)?.setOnClickListener {
+            canvas!!.colorDelPincel(Color.RED)
+        }
+
     }
 
     override fun onAttach(context: Context) {

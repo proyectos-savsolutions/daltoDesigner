@@ -11,6 +11,20 @@ class CanvasView @JvmOverloads constructor(
         context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr)
 {
+    class tramo
+    {
+        var mPath : Path = Path()
+        var mPaint : Paint = Paint()
+
+        fun tramo()
+        {
+            mPaint.color = Color.BLACK
+            mPaint.style = Paint.Style.STROKE
+            mPaint.strokeJoin = Paint.Join.ROUND
+            mPaint.strokeWidth = 4F
+        }
+    }
+
     var ancho : Int = 0
     var alto : Int = 0
 
@@ -18,6 +32,7 @@ class CanvasView @JvmOverloads constructor(
     var mCanvas : Canvas? = null
     var mPath : Path = Path()
     var mPaint : Paint = Paint()
+    var tramos = Array(100, { })
     var mX : Float  = 0.0F
     var mY : Float = 0.0F
      internal val TOLERANCE : Int = 5
@@ -60,6 +75,11 @@ class CanvasView @JvmOverloads constructor(
         mPaint.style = Paint.Style.STROKE
         mPaint.strokeJoin = Paint.Join.ROUND
         mPaint.strokeWidth = 4F
+    }
+
+    public fun colorDelPincel(colorPincel:Int)
+    {
+        mPaint.color = colorPincel
     }
 
     fun startTouch(x:Float, y:Float)
