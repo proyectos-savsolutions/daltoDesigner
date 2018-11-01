@@ -20,7 +20,7 @@ class CanvasView @JvmOverloads constructor(
     var mPaint : Paint = Paint()
     var mX : Float  = 0.0F
     var mY : Float = 0.0F
-    internal val TOLERANCE : Int = 5
+     internal val TOLERANCE : Int = 5
 
     internal var contexto:Context? = null
 
@@ -97,7 +97,7 @@ class CanvasView @JvmOverloads constructor(
     override fun onTouchEvent(event: MotionEvent?): Boolean {
 
         var x : Float  = (if (event != null) event.getX() else 0.0F)
-        var y : Float  = (if (event != null) event.getX() else 0.0F)
+        var y : Float  = (if (event != null) event.getY() else 0.0F)
 
         when (event?.action)
         {
@@ -119,13 +119,11 @@ class CanvasView @JvmOverloads constructor(
 
         }
 
-        return true;  // super.onTouchEvent(event)
+        return true; //super.onTouchEvent(event)
     }
 
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
-
-
 
         canvas?.drawPath(mPath, mPaint)
     }
