@@ -10,4 +10,5 @@
     <string name="txtSeleccionarFiltroSegunDaltonismo">Escoge el filtro a usar según el nivel de daltonismo diagnosticaco</string>
     <string name="txtCompartirDiseno">Compartir Diseño</string>
     <string name="txtCompatirPorCorreoElectronico">Enviar por correo electrónico</string>
+    <string name="btnLimpiarCanvas">Limpiar</string>
 </resources>
