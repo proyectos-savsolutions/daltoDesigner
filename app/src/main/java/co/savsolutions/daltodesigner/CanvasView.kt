@@ -25,6 +25,7 @@ class CanvasView @JvmOverloads constructor(
         }
     }
 
+    var indiceTramos : Int = 0
     var ancho : Int = 0
     var alto : Int = 0
 
@@ -32,7 +33,7 @@ class CanvasView @JvmOverloads constructor(
     var mCanvas : Canvas? = null
     var mPath : Path = Path()
     var mPaint : Paint = Paint()
-    var tramos = Array(100, { })
+    var tramos = arrayOf<tramo>()
     var mX : Float  = 0.0F
     var mY : Float = 0.0F
      internal val TOLERANCE : Int = 5
@@ -46,21 +47,22 @@ class CanvasView @JvmOverloads constructor(
 
     }
 
-/*
-    fun CanvasView @JvmOverloads constructor(
-        context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
-)
+
+    init {
         //super (context, attrs)
-        contexto = context
+       // contexto = context
 
         mPaint.color = Color.BLACK
         mPaint.style = Paint.Style.STROKE
         mPaint.strokeJoin = Paint.Join.ROUND
         mPaint.strokeWidth = 4F
 
+        val nuevoTramo:tramo = tramo()
+        nuevoTramo.mPaint = mPaint;
+        tramos[indiceTramos] = nuevoTramo
 
     }
-*/
+
      override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
 
@@ -80,6 +82,11 @@ class CanvasView @JvmOverloads constructor(
     public fun colorDelPincel(colorPincel:Int)
     {
         mPaint.color = colorPincel
+        val nuevoTramo:tramo = tramo()
+        nuevoTramo.mPaint = mPaint;
+        indiceTramos = indiceTramos + 1
+        tramos.set(indiceTramos, nuevoTramo )
+
     }
 
     fun startTouch(x:Float, y:Float)
@@ -145,7 +152,9 @@ class CanvasView @JvmOverloads constructor(
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
 
-        canvas?.drawPath(mPath, mPaint)
+        // canvas?.drawPath(mPath, mPaint)
+        canvas?.drawPath(mPath, tramos[indiceTramos].mPaint)
+
     }
 
 
