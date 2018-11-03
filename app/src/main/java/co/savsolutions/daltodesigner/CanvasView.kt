@@ -33,7 +33,7 @@ class CanvasView @JvmOverloads constructor(
     var mCanvas : Canvas? = null
     var mPath : Path = Path()
     var mPaint : Paint = Paint()
-    var tramos = arrayOf<tramo>()
+    var tramos = HashMap<Int, tramo>()
     var mX : Float  = 0.0F
     var mY : Float = 0.0F
      internal val TOLERANCE : Int = 5
@@ -59,7 +59,7 @@ class CanvasView @JvmOverloads constructor(
 
         val nuevoTramo:tramo = tramo()
         nuevoTramo.mPaint = mPaint;
-        tramos[indiceTramos] = nuevoTramo
+        tramos.set( indiceTramos,nuevoTramo)
 
     }
 
@@ -85,8 +85,7 @@ class CanvasView @JvmOverloads constructor(
         val nuevoTramo:tramo = tramo()
         nuevoTramo.mPaint = mPaint;
         indiceTramos = indiceTramos + 1
-        tramos.set(indiceTramos, nuevoTramo )
-
+        tramos.set( indiceTramos,nuevoTramo)
     }
 
     fun startTouch(x:Float, y:Float)
@@ -153,7 +152,8 @@ class CanvasView @JvmOverloads constructor(
         super.onDraw(canvas)
 
         // canvas?.drawPath(mPath, mPaint)
-        canvas?.drawPath(mPath, tramos[indiceTramos].mPaint)
+
+        canvas?.drawPath(mPath, tramos.get(indiceTramos)!!.mPaint)
 
     }
 

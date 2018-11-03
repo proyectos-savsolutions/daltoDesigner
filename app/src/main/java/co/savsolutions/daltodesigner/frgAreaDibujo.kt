@@ -69,7 +69,7 @@ class frgAreaDibujo : Fragment() {
         // Escucha para pasar a la vista de aplicar filtros
         view?.findViewById<Button>(R.id.btnAplicarFiltros)?.setOnClickListener {
             // Navigate to the login destination
-            view?.let { Navigation.findNavController(it).navigate(R.id.frgFiltrosColores3) }
+            view?.let { Navigation.findNavController(it).navigate(R.id.frgFiltrosColores2) }
         }
 
         // Escucha para el botón de Color Azul

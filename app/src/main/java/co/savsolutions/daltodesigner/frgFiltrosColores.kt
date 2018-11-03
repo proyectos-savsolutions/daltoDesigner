@@ -4,13 +4,17 @@ package co.savsolutions.daltodesigner
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
+import android.os.Parcel
+import android.os.Parcelable
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import android.widget.*
+import android.widget.AdapterView.OnItemSelectedListener
 import androidx.navigation.Navigation
 
+import kotlinx.android.synthetic.main.fragment_frg_filtros_colores.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,11 +30,14 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  *
  */
-class frgFiltrosColores : Fragment() {
+class frgFiltrosColores() : Fragment() {
+
+
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
     private var listener: OnFragmentInteractionListener? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,12 +45,21 @@ class frgFiltrosColores : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
+
+
         return inflater.inflate(R.layout.fragment_frg_filtros_colores, container, false)
+    }
+
+
+    fun aplicarFiltroParaDoltonismo(tipoDaltonismo : Int)
+    {
+        print("Option <tipoDaltonismo>" )
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -59,15 +75,30 @@ class frgFiltrosColores : Fragment() {
             throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
         }
     }
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
         // Set up a click listener on the login button
         view?.findViewById<Button>(R.id.btnCompartirDiseno)?.setOnClickListener {
             // Navigate to the login destination
-            view?.let { Navigation.findNavController(it).navigate(R.id.frgCompartirDiseno3) }
+            view?.let { Navigation.findNavController(it).navigate(R.id.frgCompartirDiseno2) }
+        }
+
+        spnTipoDaltonismo.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+
+                if (parent!!.id == spnTipoDaltonismo.id)
+                {
+                    aplicarFiltroParaDoltonismo(spnTipoDaltonismo.selectedItemPosition)
+                }
+            }
         }
     }
+
     override fun onDetach() {
         super.onDetach()
         listener = null
@@ -108,4 +139,5 @@ class frgFiltrosColores : Fragment() {
                     }
                 }
     }
+
 }

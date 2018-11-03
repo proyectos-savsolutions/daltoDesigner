@@ -19,7 +19,7 @@
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_frgAreaDibujo2_to_frgFiltrosColores3">
+                            <entry key="action_frgAreaDibujo2_to_frgFiltrosColores2">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -29,18 +29,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="frgCompartirDiseno3">
+                  <entry key="frgCompartirDiseno2">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="572" />
-                            <option name="y" value="-94" />
+                            <option name="x" value="604" />
+                            <option name="y" value="-189" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_frgCompartirDiseno3_to_frgAreaDibujo2">
+                            <entry key="action_frgCompartirDiseno2_to_frgAreaDibujo2">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -50,18 +50,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="frgFiltrosColores3">
+                  <entry key="frgFiltrosColores2">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="346" />
-                            <option name="y" value="-89" />
+                            <option name="x" value="360" />
+                            <option name="y" value="178" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_frgFiltrosColores3_to_frgCompartirDiseno3">
+                            <entry key="action_frgFiltrosColores2_to_frgCompartirDiseno2">
                               <value>
                                 <LayoutPositions />
                               </value>

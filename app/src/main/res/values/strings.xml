@@ -11,4 +11,5 @@
     <string name="txtCompartirDiseno">Compartir Diseño</string>
     <string name="txtCompatirPorCorreoElectronico">Enviar por correo electrónico</string>
     <string name="btnLimpiarCanvas">Limpiar</string>
+    <string name="btnCreadoPor">Creado por</string>
 </resources>
