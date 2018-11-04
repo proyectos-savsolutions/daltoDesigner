@@ -2,17 +2,21 @@ package co.savsolutions.daltodesigner
 
 
 import android.content.Context
+import android.graphics.Bitmap
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
+import android.service.autofill.Validators.not
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.Button
 import androidx.navigation.Navigation
 
 import kotlinx.android.synthetic.main.fragment_frg_area_dibujo.*
+import kotlinx.android.synthetic.main.fragment_frg_filtros_colores.*
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -63,7 +67,7 @@ class frgAreaDibujo : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         canvas = CanvasView (context!!,null,0)
-        canvas = cnvEspacioDibujo
+        canvas = cnvEspacioDibujoFlitro
         canvas!!.ajustarPincel()
 
         // Escucha para pasar a la vista de aplicar filtros
@@ -97,6 +101,21 @@ class frgAreaDibujo : Fragment() {
             canvas!!.colorDelPincel(Color.RED)
         }
 
+
+        spnFiltrosMientrasDibuja.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+
+                if (parent!!.id == spnFiltrosMientrasDibuja.id)
+                {
+                    aplicarFiltroParaDoltonismo(0)
+                }
+            }
+
+
+        }
     }
 
     override fun onAttach(context: Context) {
@@ -151,4 +170,57 @@ class frgAreaDibujo : Fragment() {
 
                 }
     }
+
+    /*
+    Efectos gráficos
+     */
+
+    fun aplicarFiltroParaDoltonismo(tipoDaltonismo : Int)
+    {
+
+         let { cnvEspacioDibujoFlitro.mBitmap =  applyHueFilter(cnvEspacioDibujoFlitro.mBitmap!!, 3) }
+
+        cnvEspacioDibujoFlitro.mCanvas!!.drawBitmap(applyHueFilter(cnvEspacioDibujoFlitro.mBitmap!!, 3),0.0F,0.0F,cnvEspacioDibujoFlitro.mPaint)
+    }
+
+
+    fun applyHueFilter(source: Bitmap, level: Int) : Bitmap
+    {
+        // get image size
+        var width :Int =  source.getWidth()
+        var height : Int  = source.getHeight()
+        var  pixels = IntArray(width * height)
+        var HSV = floatArrayOf(0.0F, 0.0F, 0.0F)
+
+
+        // get pixel array from source
+        source.getPixels(pixels, 0, width, 0, 0, width, height);
+
+        var index : Int = 0
+        // iteration through pixels
+
+        for(y  in  0 .. height-1)
+        {
+            for( x in 0 .. width-1)
+            {
+                // get current index in 2D-matrix
+                index = y * width + x;
+                // convert to HSV
+                Color.colorToHSV(pixels[index], HSV);
+                // increase Saturation level
+                HSV[0] = HSV[0] * level;
+                HSV[0] =  Math.max(0.0F, Math.min(HSV[0], 360.0F)) as Float
+                // take color back
+
+                pixels[index] = Color.HSVToColor(HSV)
+            }
+        }
+
+        // output bitmap
+        var bmOut : Bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+        bmOut.setPixels(pixels, 0, width, 0, 0, width, height);
+        return bmOut;
+    }
 }
+
+
