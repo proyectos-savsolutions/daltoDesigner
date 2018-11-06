@@ -10,65 +10,67 @@
 
     <Button
         android:id="@+id/btnColorNaranja"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/holo_orange_dark"
-        app:layout_constraintStart_toEndOf="@+id/btnColorRojo"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnColorRojo"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/holo_red_dark"
-        app:layout_constraintStart_toEndOf="@+id/btnColorVerde"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnColorVerde"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/holo_green_dark"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnColorAzul"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/holo_blue_dark"
-        app:layout_constraintStart_toEndOf="@+id/btnColorNaranja"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnColorPurpura"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="70dp"
+        android:layout_height="56dp"
 
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:background="@android:color/holo_purple"
+        android:background="@color/colorVerde"
+        app:layout_constraintStart_toEndOf="@+id/btnColorRojo"
+        app:layout_constraintTop_toTopOf="parent" android:text="VERDE"/>
+
+    <Button
+        android:id="@+id/btnColorRojo"
+        android:layout_width="68dp"
+        android:layout_height="56dp"
+
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorMorado"
+        app:layout_constraintStart_toEndOf="@+id/btnColorVerde"
+        app:layout_constraintTop_toTopOf="parent" android:text="MORADO"
+        app:layout_constraintEnd_toStartOf="@+id/btnColorNaranja" android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"/>
+
+    <Button
+        android:id="@+id/btnColorVerde"
+        android:layout_width="64dp"
+        android:layout_height="54dp"
+
+        android:layout_marginTop="16dp"
+        android:background="@color/colorRojo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" android:text="ROJO" android:layout_marginLeft="3dp"
+        android:layout_marginStart="3dp"/>
+
+    <Button
+        android:id="@+id/btnColorAzul"
+        android:layout_width="66dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorAzul"
+        app:layout_constraintStart_toEndOf="@+id/btnColorNaranja"
+        app:layout_constraintTop_toTopOf="parent" android:text="AZUL"/>
+
+    <Button
+        android:id="@+id/btnColorPurpura"
+        android:layout_width="81dp"
+        android:layout_height="56dp"
+
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginRight="9dp"
+        android:background="@color/colorAmarillo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnColorAzul"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.0"
+        android:text="AMARILLO"/>
 
     <Button
         android:id="@+id/btnLimpiarAreaDibujo"
@@ -102,12 +104,12 @@
         android:layout_height="319dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnColorNaranja" />
+        app:layout_constraintTop_toBottomOf="@+id/btnColorNaranja" app:layout_constraintHorizontal_bias="0.0"/>
 
     <Spinner
         android:id="@+id/spnFiltrosMientrasDibuja"
@@ -115,14 +117,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="1dp"
         android:layout_marginRight="1dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="5dp"
         android:entries="@array/lstTipoDaltonismo"
         app:layout_constraintBottom_toTopOf="@+id/btnLimpiarAreaDibujo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cnvEspacioDibujoFlitro" />
+        app:layout_constraintTop_toBottomOf="@+id/cnvEspacioDibujoFlitro"/>
 
 </android.support.constraint.ConstraintLayout>

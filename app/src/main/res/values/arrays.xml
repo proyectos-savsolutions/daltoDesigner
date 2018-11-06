@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="lstTipoDaltonismo">
-        <item> Daltonismo 1 </item>
-        <item> Daltonismo 2 </item>
-        <item> Daltonismo 3 </item>
+        <item> Daltonismo 1 Tricromacia anomala </item>
     </string-array>
 </resources>
