@@ -70,36 +70,37 @@ class frgAreaDibujo : Fragment() {
         canvas = cnvEspacioDibujoFlitro
         canvas!!.ajustarPincel()
 
+
+
         // Escucha para pasar a la vista de aplicar filtros
         view?.findViewById<Button>(R.id.btnAplicarFiltros)?.setOnClickListener {
             // Navigate to the login destination
             view?.let { Navigation.findNavController(it).navigate(R.id.frgFiltrosColores2) }
         }
 
-        // Escucha para el botón de Color rojo
-        view?.findViewById<Button>(R.id.btnColorAzul)?.setOnClickListener {
-            canvas!!.colorDelPincel = Color.parseColor("#f82a2a")
-
-        }
-
-        // Escucha para el botón de Color morado
-        view?.findViewById<Button>(R.id.btnColorNaranja)?.setOnClickListener {
-            canvas!!.colorDelPincel(colorPincel = Color.#79484c)
-        }
-
-        // Escucha para el botón de Color Verde
+        //PRIMER BOTON
         view?.findViewById<Button>(R.id.btnColorVerde)?.setOnClickListener {
-            canvas!!.colorDelPincel(colorPincel = Color.#74eaff)
+            canvas!!.colorDelPincel(Color.parseColor("#f82a2a"))//PRIMERO
         }
 
-        // Escucha para el botón de Color azul
-        view?.findViewById<Button>(R.id.btnColorPurpura)?.setOnClickListener {
-            canvas!!.colorDelPincel(colorPincel = Color.#2a5ad)
-        }
-
-        // Escucha para el botón de Color amarillo
+       // SEGUNDO BOTON
         view?.findViewById<Button>(R.id.btnColorRojo)?.setOnClickListener {
-            canvas!!.colorDelPincel(colorPincel=Color.#fdf9f9)
+            canvas!!.colorDelPincel(Color.parseColor("#79484c"))//SEGUNDO
+        }
+
+        // TERCER BOTON
+        view?.findViewById<Button>(R.id.btnColorNaranja)?.setOnClickListener {
+            canvas!!.colorDelPincel (Color.parseColor("#74eaff"))//TERCERO
+        }
+
+        // CUARTO BOTON
+        view?.findViewById<Button>(R.id.btnColorAzul)?.setOnClickListener {
+            canvas!!.colorDelPincel  (Color.parseColor("#32a5ad"))//CUATRO
+        }
+
+        // QUINTO BOTON
+        view?.findViewById<Button>(R.id.btnColorPurpura)?.setOnClickListener {
+            canvas!!.colorDelPincel( Color.parseColor("#f7e8e8"))//QUINTO
         }
 
 

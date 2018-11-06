@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#48b3d8</color>
+
+    <color name="colorPrimary">#31bd7e</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#551c43</color>
-    <color name="colorMorado">#79484c</color>
-    <color name="colorAzul">#32a5ad</color>
-    <color name="colorRojo">#f82a2a</color>
-    <color name="colorVerde">#74eaff</color>
-    <color name="colorAmarillo">#fdf9f9</color>
+    <color name="colorMorado">#79484c</color>//
+    <color name="colorAzul">#32a5ad</color>//
+    <color name="colorRojo">#f82a2a</color>//
+    <color name="colorVerde">#74eaff</color>//
+    <color name="colorAmarillo">#f7e8e8</color>
+
+
+
+    // Colores trasladado
+
+    //transicion Morado: #6b4878
+    //transicion Azul: #5270c4
+    //transicion Rojo: #e02121
+    //transicion Verde: #6de86f
+    //transicion Amarillo: #fffc6d
 
 
 </resources>
