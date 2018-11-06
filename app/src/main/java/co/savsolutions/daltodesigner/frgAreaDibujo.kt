@@ -76,29 +76,30 @@ class frgAreaDibujo : Fragment() {
             view?.let { Navigation.findNavController(it).navigate(R.id.frgFiltrosColores2) }
         }
 
-        // Escucha para el botón de Color Azul
+        // Escucha para el botón de Color rojo
         view?.findViewById<Button>(R.id.btnColorAzul)?.setOnClickListener {
-            canvas!!.colorDelPincel(Color.BLUE)
+            canvas!!.colorDelPincel = Color.parseColor("#f82a2a")
+
         }
 
-        // Escucha para el botón de Color Naranja
+        // Escucha para el botón de Color morado
         view?.findViewById<Button>(R.id.btnColorNaranja)?.setOnClickListener {
-            canvas!!.colorDelPincel(Color.YELLOW)
+            canvas!!.colorDelPincel(colorPincel = Color.#79484c)
         }
 
         // Escucha para el botón de Color Verde
         view?.findViewById<Button>(R.id.btnColorVerde)?.setOnClickListener {
-            canvas!!.colorDelPincel(Color.GREEN)
+            canvas!!.colorDelPincel(colorPincel = Color.#74eaff)
         }
 
-        // Escucha para el botón de Color Purpura
+        // Escucha para el botón de Color azul
         view?.findViewById<Button>(R.id.btnColorPurpura)?.setOnClickListener {
-            canvas!!.colorDelPincel(Color.MAGENTA)
+            canvas!!.colorDelPincel(colorPincel = Color.#2a5ad)
         }
 
-        // Escucha para el botón de Color Rojo
+        // Escucha para el botón de Color amarillo
         view?.findViewById<Button>(R.id.btnColorRojo)?.setOnClickListener {
-            canvas!!.colorDelPincel(Color.RED)
+            canvas!!.colorDelPincel(colorPincel=Color.#fdf9f9)
         }
 
 
