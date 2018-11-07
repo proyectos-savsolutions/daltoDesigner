@@ -2,5 +2,6 @@
 <resources>
     <string-array name="lstTipoDaltonismo">
         <item> Daltonismo 1 Tricromacia anomala </item>
+        <item> Sin daltonismo </item>
     </string-array>
 </resources>

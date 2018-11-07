@@ -80,27 +80,27 @@ class frgAreaDibujo : Fragment() {
 
         //PRIMER BOTON
         view?.findViewById<Button>(R.id.btnColorVerde)?.setOnClickListener {
-            canvas!!.colorDelPincel(Color.parseColor("#f82a2a"))//PRIMERO
+            canvas!!.colorDelPincel(Color.parseColor("#f82a2a"), Color.RED)//PRIMERO
         }
 
        // SEGUNDO BOTON
         view?.findViewById<Button>(R.id.btnColorRojo)?.setOnClickListener {
-            canvas!!.colorDelPincel(Color.parseColor("#79484c"))//SEGUNDO
+            canvas!!.colorDelPincel(Color.parseColor("#79484c"), Color.MAGENTA)//SEGUNDO
         }
 
         // TERCER BOTON
         view?.findViewById<Button>(R.id.btnColorNaranja)?.setOnClickListener {
-            canvas!!.colorDelPincel (Color.parseColor("#74eaff"))//TERCERO
+            canvas!!.colorDelPincel (Color.parseColor("#74eaff"), Color.GREEN)//TERCERO
         }
 
         // CUARTO BOTON
         view?.findViewById<Button>(R.id.btnColorAzul)?.setOnClickListener {
-            canvas!!.colorDelPincel  (Color.parseColor("#32a5ad"))//CUATRO
+            canvas!!.colorDelPincel  (Color.parseColor("#32a5ad"), Color.BLUE)//CUATRO
         }
 
         // QUINTO BOTON
         view?.findViewById<Button>(R.id.btnColorPurpura)?.setOnClickListener {
-            canvas!!.colorDelPincel( Color.parseColor("#f7e8e8"))//QUINTO
+            canvas!!.colorDelPincel( Color.parseColor("#f7e8e8"), Color.YELLOW)//QUINTO
         }
 
 
@@ -112,7 +112,8 @@ class frgAreaDibujo : Fragment() {
 
                 if (parent!!.id == spnFiltrosMientrasDibuja.id)
                 {
-                    aplicarFiltroParaDoltonismo(0)
+                    aplicarFiltroParaDoltonismo(spnFiltrosMientrasDibuja.selectedItemPosition)
+
                 }
             }
 
@@ -180,9 +181,11 @@ class frgAreaDibujo : Fragment() {
     fun aplicarFiltroParaDoltonismo(tipoDaltonismo : Int)
     {
 
-         let { cnvEspacioDibujoFlitro.mBitmap =  applyHueFilter(cnvEspacioDibujoFlitro.mBitmap!!, 3) }
+        cnvEspacioDibujoFlitro.conjuntoColoresUtilizar = tipoDaltonismo  // Aplicar el filtro para presentar los colores naturales
 
-        cnvEspacioDibujoFlitro.mCanvas!!.drawBitmap(applyHueFilter(cnvEspacioDibujoFlitro.mBitmap!!, 3),0.0F,0.0F,cnvEspacioDibujoFlitro.mPaint)
+        // let { cnvEspacioDibujoFlitro.mBitmap =  applyHueFilter(cnvEspacioDibujoFlitro.mBitmap!!, 3) }
+
+        // cnvEspacioDibujoFlitro.mCanvas!!.drawBitmap(applyHueFilter(cnvEspacioDibujoFlitro.mBitmap!!, 3),0.0F,0.0F,cnvEspacioDibujoFlitro.mPaint)
     }
 
 
