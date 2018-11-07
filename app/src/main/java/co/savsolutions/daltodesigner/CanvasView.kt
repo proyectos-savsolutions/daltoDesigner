@@ -30,9 +30,12 @@ class CanvasView @JvmOverloads constructor(
     var alto : Int = 0
 
     var mBitmap : Bitmap? = null
+    var mBitmapNatural : Bitmap? = null
     var mCanvas : Canvas? = null
+    var mCanvasNatural : Canvas? = null
     var mPath : Path = Path()
     var mPaint : Paint = Paint()
+    var mPaintNatural : Paint = Paint()
     var tramos = HashMap<Int, tramo>()
     var mX : Float  = 0.0F
     var mY : Float = 0.0F
@@ -57,6 +60,12 @@ class CanvasView @JvmOverloads constructor(
         mPaint.strokeJoin = Paint.Join.ROUND
         mPaint.strokeWidth = 4F
 
+
+        mPaintNatural.color = Color.BLUE
+        mPaintNatural.style = Paint.Style.STROKE
+        mPaintNatural.strokeJoin = Paint.Join.ROUND
+        mPaintNatural.strokeWidth = 4F
+
         val nuevoTramo:tramo = tramo()
         nuevoTramo.mPaint = mPaint;
         tramos.set( indiceTramos,nuevoTramo)
@@ -69,11 +78,14 @@ class CanvasView @JvmOverloads constructor(
          mBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888 )
          mCanvas = Canvas(mBitmap!!)
 
+         mBitmapNatural = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888 )
+         mCanvasNatural = Canvas(mBitmapNatural!!)
+
     }
 
     public fun ajustarPincel()
     {
-        mPaint.color = Color.BLACK
+        mPaint.color = Color.RED
         mPaint.style = Paint.Style.STROKE
         mPaint.strokeJoin = Paint.Join.ROUND
         mPaint.strokeWidth = 4F
@@ -81,16 +93,38 @@ class CanvasView @JvmOverloads constructor(
 
     public fun colorDelPincel(colorPincel:Int)
     {
-        mPaint.color = colorPincel
+        //mPaint.color = colorPincel
+        //mPath.close()
+        //tramos.get(indiceTramos)!!.mPath.close()
+
+
         val nuevoTramo:tramo = tramo()
-        nuevoTramo.mPaint = mPaint;
+        nuevoTramo.mPaint = Paint()
+        nuevoTramo.mPaint.color = colorPincel
+        nuevoTramo.mPaint.style = Paint.Style.STROKE
+        nuevoTramo.mPaint.strokeJoin = Paint.Join.ROUND
+        nuevoTramo.mPaint.strokeWidth = 1F
+
+        nuevoTramo.mPath = Path()
+
         indiceTramos = indiceTramos + 1
         tramos.set( indiceTramos,nuevoTramo)
+
+    }
+
+    public fun colorDelPincelNatural(colorPincel:Int)
+    {
+        mPaintNatural.color = colorPincel
+        val nuevoTramo:tramo = tramo()
+        nuevoTramo.mPaint = mPaintNatural;
+        indiceTramos = indiceTramos + 1
+        tramos.set( indiceTramos,nuevoTramo)
+
     }
 
     fun startTouch(x:Float, y:Float)
     {
-        mPath.moveTo(x, y)
+        tramos.get(indiceTramos)!!.mPath.moveTo(x, y)
         mX = x
         mY = y
     }
@@ -103,7 +137,7 @@ class CanvasView @JvmOverloads constructor(
 
         if (dx >= TOLERANCE || dy >= TOLERANCE)
         {
-            mPath.quadTo(mX, mY,  (x+ mX) /2, (y + mY) /2 )
+            tramos.get(indiceTramos)!!.mPath.quadTo(mX, mY,  (x+ mX) /2, (y + mY) /2 )
             mX = x
             mY = y
         }
@@ -111,13 +145,13 @@ class CanvasView @JvmOverloads constructor(
 
     fun clearCanvas()
     {
-        mPath.reset()
+        tramos.get(indiceTramos)!!.mPath.reset()
         invalidate()
     }
 
     fun upTouch()
     {
-        mPath.lineTo(mX, mY)
+        tramos.get(indiceTramos)!!.mPath.lineTo(mX, mY)
     }
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
@@ -151,9 +185,12 @@ class CanvasView @JvmOverloads constructor(
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
 
-        // canvas?.drawPath(mPath, mPaint)
+        // canvas?.drawColor(mPaint.color)
 
-        canvas?.drawPath(mPath, tramos.get(indiceTramos)!!.mPaint)
+        // Dibujar todos los tramos que se han creado hasta el momento
+        for (i in 0 .. indiceTramos ) {
+            canvas?.drawPath(tramos.get(i)!!.mPath, tramos.get(i)!!.mPaint)
+        }
 
     }
 

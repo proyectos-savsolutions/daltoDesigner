@@ -192,7 +192,7 @@ class frgAreaDibujo : Fragment() {
         var width :Int =  source.getWidth()
         var height : Int  = source.getHeight()
         var  pixels = IntArray(width * height)
-        var HSV = floatArrayOf(0.0F, 0.0F, 0.0F)
+        var HSV = floatArrayOf(2.0F, 123.0F, 231.0F)
 
 
         // get pixel array from source
