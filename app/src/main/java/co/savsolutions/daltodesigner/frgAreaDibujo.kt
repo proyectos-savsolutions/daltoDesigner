@@ -78,6 +78,12 @@ class frgAreaDibujo : Fragment() {
             view?.let { Navigation.findNavController(it).navigate(R.id.frgFiltrosColores2) }
         }
 
+        // Escucha para pasar a la vista de aplicar filtros
+        view?.findViewById<Button>(R.id.btnLimpiarAreaDibujo)?.setOnClickListener {
+            // Navigate to the login destination
+            cnvEspacioDibujoFlitro.clearCanvas()
+        }
+
         //PRIMER BOTON
         view?.findViewById<Button>(R.id.btnColorVerde)?.setOnClickListener {
             canvas!!.colorDelPincel(Color.parseColor("#f82a2a"), Color.RED)//PRIMERO
@@ -181,7 +187,9 @@ class frgAreaDibujo : Fragment() {
     fun aplicarFiltroParaDoltonismo(tipoDaltonismo : Int)
     {
 
+
         cnvEspacioDibujoFlitro.conjuntoColoresUtilizar = tipoDaltonismo  // Aplicar el filtro para presentar los colores naturales
+        cnvEspacioDibujoFlitro.mBitmap!!.recycle()
 
         // let { cnvEspacioDibujoFlitro.mBitmap =  applyHueFilter(cnvEspacioDibujoFlitro.mBitmap!!, 3) }
 

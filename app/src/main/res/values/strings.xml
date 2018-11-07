@@ -12,4 +12,9 @@
     <string name="txtCompatirPorCorreoElectronico">Enviar por correo electrónico</string>
     <string name="btnLimpiarCanvas">Limpiar</string>
     <string name="btnCreadoPor">Creado por</string>
+    <string name="txtColorVerde">VERDE</string>
+    <string name="txtColorMorado">MORADO</string>
+    <string name="txtColorRojo">ROJO</string>
+    <string name="txtColorAzul">AZUL</string>
+    <string name="txtColorAmarillo">AMARILLO</string>
 </resources>

@@ -97,7 +97,6 @@ class CanvasView @JvmOverloads constructor(
         //mPath.close()
         //tramos.get(indiceTramos)!!.mPath.close()
 
-
         indiceTramos = indiceTramos + 1
 
         val nuevoTramo:tramo = tramo()
@@ -116,7 +115,7 @@ class CanvasView @JvmOverloads constructor(
         nuevoTramoNatural.mPaint.color = colorComunPincel
         nuevoTramoNatural.mPaint.style = Paint.Style.STROKE
         nuevoTramoNatural.mPaint.strokeJoin = Paint.Join.ROUND
-        nuevoTramoNatural.mPaint.strokeWidth = 2F
+        nuevoTramoNatural.mPaint.strokeWidth = 4F
 
         nuevoTramoNatural.mPath = Path()
 

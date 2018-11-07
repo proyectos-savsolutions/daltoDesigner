@@ -13,11 +13,11 @@
         android:layout_width="70dp"
         android:layout_height="56dp"
 
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="12dp"
         android:background="@color/colorVerde"
-        android:text="VERDE"
+        android:text="@string/txtColorVerde"
         app:layout_constraintStart_toEndOf="@+id/btnColorRojo"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,7 +32,7 @@
         android:layout_marginEnd="30dp"
         android:layout_marginRight="30dp"
         android:background="@color/colorMorado"
-        android:text="MORADO"
+        android:text="@string/txtColorMorado"
         app:layout_constraintEnd_toStartOf="@+id/btnColorNaranja"
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toEndOf="@+id/btnColorVerde"
@@ -43,11 +43,13 @@
         android:layout_width="64dp"
         android:layout_height="54dp"
 
+        android:layout_marginStart="3dp"
+        android:layout_marginLeft="3dp"
         android:layout_marginTop="16dp"
         android:background="@color/colorRojo"
+        android:text="@string/txtColorRojo"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" android:text="ROJO" android:layout_marginLeft="3dp"
-        android:layout_marginStart="3dp"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnColorAzul"
@@ -57,7 +59,7 @@
         android:layout_marginLeft="4dp"
         android:layout_marginTop="16dp"
         android:background="@color/colorAzul"
-        android:text="AZUL"
+        android:text="@string/txtColorAzul"
         app:layout_constraintStart_toEndOf="@+id/btnColorNaranja"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -72,7 +74,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
         android:background="@color/colorAmarillo"
-        android:text="AMARILLO"
+        android:text="@string/txtColorAmarillo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/btnColorAzul"
@@ -83,15 +85,15 @@
         android:id="@+id/btnAplicarFiltros"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="120dp"
-        android:layout_marginRight="120dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginLeft="88dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginBottom="16dp"
         android:text="@string/btnAplicarFiltros"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/btnLimpiarAreaDibujo" />
 
     <co.savsolutions.daltodesigner.CanvasView
@@ -124,5 +126,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cnvEspacioDibujoFlitro"/>
+
+    <Button
+        android:id="@+id/btnLimpiarAreaDibujo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/btnLimpiarCanvas"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
