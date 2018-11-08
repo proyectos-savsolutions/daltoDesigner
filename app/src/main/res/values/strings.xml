@@ -17,4 +17,5 @@
     <string name="txtColorRojo">ROJO</string>
     <string name="txtColorAzul">AZUL</string>
     <string name="txtColorAmarillo">AMARILLO</string>
+    <string name="btnDeshacer">Deshacer</string>
 </resources>

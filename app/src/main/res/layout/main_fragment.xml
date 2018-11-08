@@ -1,56 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/main"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.main.MainFragment">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/dalto_designer_icn"
+    tools:context=".ui.main.MainFragment">
 
     <TextView
         android:id="@+id/msgPrincipal"
         android:layout_width="wrap_content"
-        android:layout_height="16dp"
-        android:layout_marginBottom="8dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="28dp"
         android:text="@string/app_name"
-        app:layout_constraintBottom_toTopOf="@+id/btnLanzar"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="36sp"
+        app:fontFamily="@font/aclonica"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.306" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnLanzar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="48dp"
+        android:layout_width="154dp"
+        android:layout_height="144dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@android:drawable/ic_menu_edit"
         android:text="@string/btnNuevoDiseno"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        android:textColor="@android:color/background_dark"
+        android:textStyle="bold|italic"
+        app:fontFamily="@font/aclonica"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.83" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-      android:id="@+id/button"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_marginBottom="72dp"
-       android:text="@string/btnCargarDiseno"
-       app:layout_constraintBottom_toTopOf="@+id/button2"
-       app:layout_constraintEnd_toEndOf="parent"
-       app:layout_constraintHorizontal_bias="0.517"
-       app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnCreadoPor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -61,7 +50,6 @@
         android:text="@string/btnCreadoPor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.53"
         app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
