@@ -30,7 +30,7 @@
         android:layout_marginBottom="8dp"
         android:background="@android:drawable/ic_menu_edit"
         android:text="@string/btnNuevoDiseno"
-        android:textColor="@android:color/background_dark"
+        android:textColor="@android:color/holo_red_dark"
         android:textStyle="bold|italic"
         app:fontFamily="@font/aclonica"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -17,6 +17,11 @@ import androidx.navigation.Navigation
 
 import kotlinx.android.synthetic.main.fragment_frg_area_dibujo.*
 import kotlinx.android.synthetic.main.fragment_frg_filtros_colores.*
+import android.support.v4.content.ContextCompat.startActivity
+import android.content.Intent
+import android.widget.ImageView
+import java.io.File
+import java.io.FileOutputStream
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -120,6 +125,13 @@ class frgAreaDibujo : Fragment() {
         }
 
 
+        // Re hacer un dibujo ya hecho
+        view?.findViewById<Button>(R.id.btnCompartir)?.setOnClickListener {
+            // Navigate to the login destination
+            compartirImagen()
+        }
+
+
         spnFiltrosMientrasDibuja.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
@@ -199,8 +211,6 @@ class frgAreaDibujo : Fragment() {
 
 
         cnvEspacioDibujoFlitro.conjuntoColoresUtilizar = tipoDaltonismo  // Aplicar el filtro para presentar los colores naturales
-        cnvEspacioDibujoFlitro.mBitmap!!.recycle()
-        cnvEspacioDibujoFlitro.refreshDrawableState()
 
         when (tipoDaltonismo)
         {
@@ -265,6 +275,37 @@ class frgAreaDibujo : Fragment() {
         var bmOut : Bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
         bmOut.setPixels(pixels, 0, width, 0, 0, width, height);
         return bmOut;
+    }
+
+
+    fun compartirImagen()
+    {
+
+        val bitmap: Bitmap? = cnvEspacioDibujoFlitro.mBitmap!!.copy(Bitmap.Config.ARGB_8888, false)
+
+
+        /***** COMPARTIR IMAGEN *****/
+        try {
+            val file = File(context!!.getCacheDir(),   "diseno.png")
+
+            var fOut: FileOutputStream? = null
+            fOut = FileOutputStream(file)
+            bitmap!!.compress(Bitmap.CompressFormat.PNG, 100, fOut)
+
+            fOut!!.flush()
+            fOut!!.close()
+
+            file.setReadable(true, false)
+
+            val intent = Intent(Intent.ACTION_SEND)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file))
+            intent.type = "image/png"
+            context!!.startActivity(intent)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+
     }
 }
 
