@@ -73,15 +73,25 @@ class frgAreaDibujo : Fragment() {
 
 
         // Escucha para pasar a la vista de aplicar filtros
+        /*
         view?.findViewById<Button>(R.id.btnAplicarFiltros)?.setOnClickListener {
             // Navigate to the login destination
             view?.let { Navigation.findNavController(it).navigate(R.id.frgFiltrosColores2) }
         }
+        */
 
-        // Escucha para pasar a la vista de aplicar filtros
+        // Re hacer un dibujo ya hecho
+        view?.findViewById<Button>(R.id.btnRehacer)?.setOnClickListener {
+            // Navigate to the login destination
+            //cnvEspacioDibujoFlitro.clearCanvas()
+            cnvEspacioDibujoFlitro.rehacer()
+        }
+
+        // Deshacer el anteiror dibujo realizado
         view?.findViewById<Button>(R.id.btnLimpiarAreaDibujo)?.setOnClickListener {
             // Navigate to the login destination
-            cnvEspacioDibujoFlitro.clearCanvas()
+            //cnvEspacioDibujoFlitro.clearCanvas()
+            cnvEspacioDibujoFlitro.deshacer()
         }
 
         //PRIMER BOTON

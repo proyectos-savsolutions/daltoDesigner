@@ -26,6 +26,7 @@ class CanvasView @JvmOverloads constructor(
     }
 
     var indiceTramos : Int = 0
+    var maximoTramos : Int = 0
     var ancho : Int = 0
     var alto : Int = 0
 
@@ -98,6 +99,7 @@ class CanvasView @JvmOverloads constructor(
         //tramos.get(indiceTramos)!!.mPath.close()
 
         indiceTramos = indiceTramos + 1
+        maximoTramos = maximoTramos + 1
 
         val nuevoTramo:tramo = tramo()
         nuevoTramo.mPaint = Paint()
@@ -148,10 +150,28 @@ class CanvasView @JvmOverloads constructor(
         }
     }
 
+     fun deshacer()
+    {
+        if (maximoTramos >= 0) {
+            maximoTramos = maximoTramos - 1
+        }
+        invalidate()
+    }
+
+    fun rehacer()
+    {
+        if (maximoTramos + 1 <= indiceTramos) {
+            maximoTramos = maximoTramos + 1
+        }
+        invalidate()
+    }
+
+
     fun clearCanvas()
     {
         tramos.get(indiceTramos)!!.mPath.reset()
         tramosNaturales.get(indiceTramos)!!.mPath.reset()
+
         invalidate()
     }
 
@@ -197,12 +217,12 @@ class CanvasView @JvmOverloads constructor(
         {
             0 ->
             // Dibujar todos los tramos que se han creado hasta el momento
-            for (i in 0 .. indiceTramos ) {
+            for (i in 0 .. maximoTramos ) {
                 canvas?.drawPath(tramos.get(i)!!.mPath, tramos.get(i)!!.mPaint)
             }
             1 ->
                 // Dibujar todos los tramos que se han creado hasta el momento usando los colores considerados comunes
-                for (i in 0 .. indiceTramos ) {
+                for (i in 0 .. maximoTramos ) {
                     canvas?.drawPath(tramosNaturales.get(i)!!.mPath, tramosNaturales.get(i)!!.mPaint)
                 }
         }
