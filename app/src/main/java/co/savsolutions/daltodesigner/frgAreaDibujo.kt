@@ -200,6 +200,28 @@ class frgAreaDibujo : Fragment() {
 
         cnvEspacioDibujoFlitro.conjuntoColoresUtilizar = tipoDaltonismo  // Aplicar el filtro para presentar los colores naturales
         cnvEspacioDibujoFlitro.mBitmap!!.recycle()
+        cnvEspacioDibujoFlitro.refreshDrawableState()
+
+        when (tipoDaltonismo)
+        {
+            0 ->
+            {
+                btnColorVerde.setBackgroundColor(Color.parseColor("#f82a2a"))
+                btnColorRojo.setBackgroundColor(Color.parseColor("#79484c"))
+                btnColorNaranja.setBackgroundColor(Color.parseColor("#74eaff"))
+                btnColorAzul.setBackgroundColor(Color.parseColor("#32a5ad"))
+                btnColorPurpura.setBackgroundColor(Color.parseColor("#f7e8e8"))
+            }
+            1 ->
+            {
+                btnColorVerde.setBackgroundColor(Color.RED)
+                btnColorRojo.setBackgroundColor(Color.MAGENTA)
+                btnColorNaranja.setBackgroundColor(Color.GREEN)
+                btnColorAzul.setBackgroundColor(Color.BLUE)
+                btnColorPurpura.setBackgroundColor(Color.YELLOW)
+            }
+        }
+
 
         // let { cnvEspacioDibujoFlitro.mBitmap =  applyHueFilter(cnvEspacioDibujoFlitro.mBitmap!!, 3) }
 
